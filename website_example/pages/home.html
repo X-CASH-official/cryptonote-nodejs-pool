@@ -220,8 +220,8 @@ currentPage = {
     },
     update: function(){
         $('#networkLastBlockFound').timeago('update', new Date(lastStats.lastblock.timestamp * 1000).toISOString());
-        
-        updateText('networkHashrate', getReadableHashRateString(lastStats.network.difficulty / lastStats.config.coinDifficultyTarget) + '/sec');
+        var network_hashrate = lastStats.network.height < 281000 ? lastStats.network.difficulty / 60 : lastStats.network.difficulty / 120;
+        updateText('networkHashrate', getReadableHashRateString(network_hashrate) + '/sec');
         updateText('networkDifficulty', formatNumber(lastStats.network.difficulty.toString(), ' '));
         updateText('blockchainHeight', formatNumber(lastStats.network.height.toString(), ' '));
         updateText('networkLastReward', getReadableCoins(lastStats.lastblock.reward));
@@ -230,7 +230,7 @@ currentPage = {
         updateText('poolHashrate', getReadableHashRateString(lastStats.pool.hashrate) + '/sec');
         updateText('blocksTotal', lastStats.pool.totalBlocks.toString());
         
-        var hashPower = lastStats.pool.hashrate / (lastStats.network.difficulty / lastStats.config.coinDifficultyTarget) * 100;
+        var hashPower = lastStats.network.height < 281000 ? lastStats.pool.hashrate / (lastStats.network.difficulty / 60) * 100 : lastStats.pool.hashrate / (lastStats.network.difficulty / 120) * 100;
         updateText('hashPower', hashPower.toFixed(2) + '%');
 
         if (lastStats.pool.lastBlockFound) {
