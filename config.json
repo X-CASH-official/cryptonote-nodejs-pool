@@ -5,7 +5,7 @@
     "symbol": "XCASH",
     "coinUnits": 1000000,
     "coinDecimalPlaces": 6,
-    "coinDifficultyTarget": 60,
+    "coinDifficultyTarget": 120,
 
     "cnAlgorithm": "cryptonight",
     "cnVariant": 9,
