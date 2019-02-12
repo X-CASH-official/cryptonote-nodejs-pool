@@ -180,7 +180,7 @@ Explanation for each field:
 "coinDecimalPlaces": 6,
   
 /* Coin network time to mine one block, see DIFFICULTY_TARGET constant in DAEMON_CODE/src/cryptonote_config.h */
-"coinDifficultyTarget": 60,
+"coinDifficultyTarget": 120,
 
 /* Set Cryptonight algorithm settings.
    Supported algorithms: cryptonight (default). cryptonight_light and cryptonight_heavy
